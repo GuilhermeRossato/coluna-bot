@@ -17,6 +17,8 @@ for (const file of files) {
 
 const average = (veredicts.map(veredict => veredict.prediction_value).reduce((prev, cur) => prev+cur, 0) / veredicts.length);
 
+console.log("Avaliação de necessidade retornou:", (average*100).toFixed(1) + "%");
+
 if (average < 0.5) {
 	let state;
 	if (fs.existsSync("state.json")) {
@@ -30,7 +32,7 @@ if (average < 0.5) {
 		state: "boa-postura",
 		value: average
 	});
-	fs.writeFileSync("state.json", JSON.stringify(state), "utf8");
+	fs.writeFileSync("state.json", JSON.stringify(state, null, "\t"), "utf8");
 	await browser.close();
 	process.exit(0);
 }

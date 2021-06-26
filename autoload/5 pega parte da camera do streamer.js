@@ -12,6 +12,8 @@ await Promise.all(fs.readdirSync("./data").filter(file => file.startsWith("full 
 	}
 ));
 
+console.log("Parte da camera pegada com sucesso");
+
 async function extractCameraFromRawVideo(filePath) {
 	return await new Promise(resolve => {
 		fs.createReadStream(

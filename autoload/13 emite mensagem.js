@@ -53,6 +53,14 @@ state.push({
 	value: global.trustFactor
 });
 
+for (let message of messages) {
+	await page.type("textarea.tw-textarea.tw-textarea--no-resize", message);
+	await sleep(250 + Math.random() * 200);
+	await page.click(".chat-input__buttons-container button");
+	await sleep(250 + Math.random() * 200);
+	await page.evaluate(function() { document.querySelector(".tw-textarea.tw-textarea--no-resize").value = ""; });
+	await sleep(250 + Math.random() * 200);
+}
 console.log(messages);
 
 fs.writeFileSync("state.json", JSON.stringify(state, null, "\t"), "utf8");

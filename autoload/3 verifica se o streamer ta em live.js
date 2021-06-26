@@ -15,7 +15,7 @@ if (await page.evaluate(function() {
 		date: (new Date()).toISOString(),
 		state: "offline"
 	});
-	fs.writeFileSync("state.json", JSON.stringify(state), "utf8");
+	fs.writeFileSync("state.json", JSON.stringify(state, null, "\t"), "utf8");
 	await browser.close();
 	process.exit(0);
 } else {
