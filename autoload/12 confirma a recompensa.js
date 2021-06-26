@@ -1,0 +1,1 @@
+await page.click(".reward-center-body button");

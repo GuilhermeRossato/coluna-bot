@@ -1,0 +1,6 @@
+
+data/
+
+*.png
+
+node_modules/
